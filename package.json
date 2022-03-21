@@ -1,0 +1,53 @@
+{
+  "name": "@rbxts/batch-collector",
+  "version": "0.0.1",
+  "description": "A module for collecting batches of items, be they logs or tasks, to be posted together in order.",
+  "main": "out/init.lua",
+  "scripts": {
+    "eslint": "npx eslint \"src/**/*.ts\" --max-warnings 0",
+    "prepublishOnly": "rm -rf ./out; rbxtsc --type=package",
+    "test": "rbxtsc --type=game && rojo build -o ./unit_tests.rbxlx && run-in-roblox ./unit_tests.rbxlx -s ./spec.server.lua",
+    "wsl-start-unit-tests": "set -e; rm -rf ./out; rbxtsc --type=game && rojo build -o unit_tests.rbxlx; ./scripts/open-in-windows ./unit_tests.rbxlx"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bytebit-Org/roblox-BatchCollector.git"
+  },
+  "keywords": [],
+  "author": "Bytebit",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Bytebit-Org/roblox-BatchCollector/issues"
+  },
+  "homepage": "https://github.com/Bytebit-Org/roblox-BatchCollector#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "out/**/*.d.ts",
+    "out/**/!(*.spec).lua"
+  ],
+  "types": "out/index.d.ts",
+  "devDependencies": {
+    "@rbxts/compiler-types": "^1.2.7-types.0",
+    "@rbxts/types": "^1.0.546",
+    "@typescript-eslint/eslint-plugin": "^4.15.1",
+    "@typescript-eslint/parser": "^4.15.1",
+    "eslint": "^7.20.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-roblox-ts": "0.0.24",
+    "prettier": "^2.2.1",
+    "typedoc": "^0.22.0",
+    "typedoc-plugin-markdown": "^3.6.0",
+    "typescript": "^4.1.5"
+  },
+  "dependencies": {
+    "@rbxts/basic-utilities": "^0.0.14",
+    "@rbxts/bin": "^1.2.6",
+    "@rbxts/destroyed-instance-logging": "^0.0.1",
+    "@rbxts/services": "^1.2.0",
+    "@rbxts/t": "^3.0.0",
+    "@rbxts/timer": "^0.0.7"
+  }
+}
