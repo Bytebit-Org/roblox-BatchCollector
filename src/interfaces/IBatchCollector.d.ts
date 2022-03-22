@@ -3,7 +3,7 @@
  * Batch Collectors should work by allowing items to be put into batches.
  * Batches can then be queued for posting at an appropriate point in the future.
  */
- export interface IBatchCollector<T> {
+export interface IBatchCollector<T> {
 	/**
 	 * Destroys the instance.
 	 * Any batches in the queue will be dropped and not posted.
