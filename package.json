@@ -46,6 +46,7 @@
   "dependencies": {
     "@rbxts/bin": "^1.2.6",
     "@rbxts/destroyed-instance-logging": "^0.0.1",
+    "@rbxts/fitumi": "^1.0.11",
     "@rbxts/linked-lists": "^1.0.1",
     "@rbxts/services": "^1.2.0",
     "@rbxts/stacks-and-queues": "^1.0.2",
