@@ -1,4 +1,3 @@
-import { DoublyLinkedList, Queue } from "@rbxts/basic-utilities";
 import { ITimer, TimerState } from "@rbxts/timer";
 import { Bin } from "@rbxts/bin";
 import { assertNotDestroyed, warnAlreadyDestroyed } from "@rbxts/destroyed-instance-logging";
@@ -8,7 +7,9 @@ import { IBatchCollector } from "interfaces/IBatchCollector";
 import { BinFactory } from "factories/BinFactory";
 import { DoublyLinkedListFactory } from "factories/DoublyLinkedListFactory";
 import { TimerFactory } from "factories/TimerFactory";
-import { QueueFactory } from "factories/DoublyLinkedListFactory copy";
+import { QueueFactory } from "factories/QueueFactory";
+import { DoublyLinkedList } from "@rbxts/linked-lists";
+import { Queue } from "@rbxts/stacks-and-queues";
 
 /**
  * An implementation of a Batch Collector.
@@ -97,7 +98,7 @@ export class BatchCollector<T> implements IBatchCollector<T> {
 		}
 
 		let batchToPost: DoublyLinkedList<T> | undefined;
-		while ((batchToPost = this.batchesToPostQueue.popNextValue()) !== undefined) {
+		while ((batchToPost = this.batchesToPostQueue.pop()) !== undefined) {
 			this.postBatchInBackground(batchToPost);
 		}
 	}
@@ -137,7 +138,7 @@ export class BatchCollector<T> implements IBatchCollector<T> {
 					}
 				}
 
-				const batchToPost = this.batchesToPostQueue.popNextValue();
+				const batchToPost = this.batchesToPostQueue.pop();
 				if (batchToPost === undefined) {
 					// really shouldn't happen at all
 					return;

@@ -1,7 +1,7 @@
-import { DoublyLinkedList } from "@rbxts/basic-utilities";
+import { DoublyLinkedList } from "@rbxts/linked-lists";
 
 export class DoublyLinkedListFactory {
-	public createInstance<T>(values?: ReadonlyArray<T>) {
-		return new DoublyLinkedList<T>(values);
+	public createInstance<T extends defined>() {
+		return new DoublyLinkedList<T>();
 	}
 }
