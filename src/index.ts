@@ -1,3 +1,5 @@
 export * from "classes/BatchCollector";
-export * from "interfaces/IBatchCollector";
-export * from "types/BatchPostRateLimitingConfiguration";
+
+export { IBatchCollector } from "interfaces/IBatchCollector";
+
+export { BatchPostRateLimitingConfiguration } from "types/BatchPostRateLimitingConfiguration";
