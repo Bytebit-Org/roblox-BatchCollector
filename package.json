@@ -49,6 +49,7 @@
     "@rbxts/fitumi": "^1.0.11",
     "@rbxts/linked-lists": "^1.0.1",
     "@rbxts/services": "^1.2.0",
+    "@rbxts/signals-tooling": "^1.0.8",
     "@rbxts/stacks-and-queues": "^1.0.2",
     "@rbxts/t": "^3.0.0",
     "@rbxts/testez": "^0.3.1-ts.7",
