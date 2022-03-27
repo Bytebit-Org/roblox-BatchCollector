@@ -13,12 +13,14 @@ export interface IBatchCollector<T> {
 	destroy(): void;
 
 	/**
-	 * Forces the current batch to be posted right away, ahead of any others presently in the queue
+	 * Forces the current batch to be posted right away, ahead of any others presently in the queue,
+	 * ignoring any minimum time between batch postings
 	 */
 	forcePostCurrentBatch(): void;
 
 	/**
-	 * Forces all remaining batches, including the current one, to be posted right away in queue order
+	 * Forces all remaining batches, including the current one, to be posted right away in queue order,
+	 * ignoring any minimum time between batch postings
 	 */
 	forcePostRemainingBatches(): void;
 
@@ -35,7 +37,8 @@ export interface IBatchCollector<T> {
 	isPostingQueueEmpty(): boolean;
 
 	/**
-	 * Pushes the given items onto the current batch.
+	 * Pushes the given items onto the current batch. The last item in the input array will be the
+	 * last item to be put into a batch.
 	 * If, during this process, the current batch fills up, it will be queued for posting.
 	 * Any remaining items will overflow into the new batch.
 	 * This queueing and creating of a new overflow batch can happen infinitely many times in one call of this method.
