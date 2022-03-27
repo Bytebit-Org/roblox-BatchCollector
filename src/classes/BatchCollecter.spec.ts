@@ -80,7 +80,7 @@ export = () => {
 
 			batchCollector.destroy();
 
-			task.wait();
+			task.wait(0.2);
 
 			messageOutConnection.Disconnect();
 
