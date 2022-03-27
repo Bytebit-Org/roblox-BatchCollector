@@ -26,7 +26,7 @@ export class BatchCollector<T> implements IBatchCollector<T> {
 	private lastPostUnixTimestampMillis = 0;
 	private readonly partialBatchPostTimer: ITimer;
 
-	private constructor(
+	protected constructor(
 		binFactory: BinFactory,
 		private readonly dateTimeConstructor: DateTimeConstructor,
 		private readonly doublyLinkedListFactory: DoublyLinkedListFactory,
@@ -93,6 +93,8 @@ export class BatchCollector<T> implements IBatchCollector<T> {
 	}
 
 	public forcePostRemainingBatches() {
+		assertNotDestroyed(this.isDestroyed, this);
+
 		if (!this.currentBatch.isEmpty()) {
 			this.queueCurrentBatch();
 		}
