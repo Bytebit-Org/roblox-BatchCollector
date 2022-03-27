@@ -26,7 +26,7 @@ npm i @rbxts/batch-collector
 ### Wally
 [Wally](https://github.com/UpliftGames/wally/) users can install this package by adding the following line to their `Wally.toml` under `[dependencies]`:
 ```
-BatchCollector = "bytebit/batch-collector@0.0.2"
+BatchCollector = "bytebit/batch-collector@1.0.0"
 ```
 
 Then just run `wally install`.
