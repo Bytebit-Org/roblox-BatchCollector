@@ -44,7 +44,7 @@ Any further calls to methods on the instance will throw errors.
 
 #### Defined in
 
-[interfaces/IBatchCollector.d.ts:13](https://github.com/Bytebit-Org/roblox-BatchCollector/blob/f54d625/src/interfaces/IBatchCollector.d.ts#L13)
+[interfaces/IBatchCollector.d.ts:13](https://github.com/Bytebit-Org/roblox-BatchCollector/blob/678772d/src/interfaces/IBatchCollector.d.ts#L13)
 
 ___
 
@@ -52,7 +52,8 @@ ___
 
 ▸ **forcePostCurrentBatch**(): `void`
 
-Forces the current batch to be posted right away, ahead of any others presently in the queue
+Forces the current batch to be posted right away, ahead of any others presently in the queue,
+ignoring any minimum time between batch postings
 
 #### Returns
 
@@ -60,7 +61,7 @@ Forces the current batch to be posted right away, ahead of any others presently 
 
 #### Defined in
 
-[interfaces/IBatchCollector.d.ts:18](https://github.com/Bytebit-Org/roblox-BatchCollector/blob/f54d625/src/interfaces/IBatchCollector.d.ts#L18)
+[interfaces/IBatchCollector.d.ts:19](https://github.com/Bytebit-Org/roblox-BatchCollector/blob/678772d/src/interfaces/IBatchCollector.d.ts#L19)
 
 ___
 
@@ -68,7 +69,8 @@ ___
 
 ▸ **forcePostRemainingBatches**(): `void`
 
-Forces all remaining batches, including the current one, to be posted right away in queue order
+Forces all remaining batches, including the current one, to be posted right away in queue order,
+ignoring any minimum time between batch postings
 
 #### Returns
 
@@ -76,7 +78,7 @@ Forces all remaining batches, including the current one, to be posted right away
 
 #### Defined in
 
-[interfaces/IBatchCollector.d.ts:23](https://github.com/Bytebit-Org/roblox-BatchCollector/blob/f54d625/src/interfaces/IBatchCollector.d.ts#L23)
+[interfaces/IBatchCollector.d.ts:25](https://github.com/Bytebit-Org/roblox-BatchCollector/blob/678772d/src/interfaces/IBatchCollector.d.ts#L25)
 
 ___
 
@@ -94,7 +96,7 @@ True if the current batch is empty, false otherwise
 
 #### Defined in
 
-[interfaces/IBatchCollector.d.ts:29](https://github.com/Bytebit-Org/roblox-BatchCollector/blob/f54d625/src/interfaces/IBatchCollector.d.ts#L29)
+[interfaces/IBatchCollector.d.ts:31](https://github.com/Bytebit-Org/roblox-BatchCollector/blob/678772d/src/interfaces/IBatchCollector.d.ts#L31)
 
 ___
 
@@ -112,7 +114,7 @@ True if there are no batches in the queue, false otherwise
 
 #### Defined in
 
-[interfaces/IBatchCollector.d.ts:35](https://github.com/Bytebit-Org/roblox-BatchCollector/blob/f54d625/src/interfaces/IBatchCollector.d.ts#L35)
+[interfaces/IBatchCollector.d.ts:37](https://github.com/Bytebit-Org/roblox-BatchCollector/blob/678772d/src/interfaces/IBatchCollector.d.ts#L37)
 
 ___
 
@@ -120,7 +122,8 @@ ___
 
 ▸ **pushItems**(`items`): `void`
 
-Pushes the given items onto the current batch.
+Pushes the given items onto the current batch. The last item in the input array will be the
+last item to be put into a batch.
 If, during this process, the current batch fills up, it will be queued for posting.
 Any remaining items will overflow into the new batch.
 This queueing and creating of a new overflow batch can happen infinitely many times in one call of this method.
@@ -137,4 +140,4 @@ This queueing and creating of a new overflow batch can happen infinitely many ti
 
 #### Defined in
 
-[interfaces/IBatchCollector.d.ts:44](https://github.com/Bytebit-Org/roblox-BatchCollector/blob/f54d625/src/interfaces/IBatchCollector.d.ts#L44)
+[interfaces/IBatchCollector.d.ts:47](https://github.com/Bytebit-Org/roblox-BatchCollector/blob/678772d/src/interfaces/IBatchCollector.d.ts#L47)

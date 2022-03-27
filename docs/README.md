@@ -24,4 +24,4 @@
 
 #### Defined in
 
-[types/BatchPostRateLimitingConfiguration.ts:9](https://github.com/Bytebit-Org/roblox-BatchCollector/blob/f54d625/src/types/BatchPostRateLimitingConfiguration.ts#L9)
+[types/BatchPostRateLimitingConfiguration.ts:9](https://github.com/Bytebit-Org/roblox-BatchCollector/blob/678772d/src/types/BatchPostRateLimitingConfiguration.ts#L9)

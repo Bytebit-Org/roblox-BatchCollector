@@ -20,6 +20,10 @@ batches will be posted as they come up in the queue on each RunService.Heartbeat
 
 ## Table of contents
 
+### Constructors
+
+- [constructor](BatchCollector.md#constructor)
+
 ### Methods
 
 - [destroy](BatchCollector.md#destroy)
@@ -29,6 +33,38 @@ batches will be posted as they come up in the queue on each RunService.Heartbeat
 - [isPostingQueueEmpty](BatchCollector.md#ispostingqueueempty)
 - [pushItems](BatchCollector.md#pushitems)
 - [create](BatchCollector.md#create)
+
+## Constructors
+
+### constructor
+
+• `Protected` **new BatchCollector**<`T`\>(`binFactory`, `dateTimeConstructor`, `doublyLinkedListFactory`, `onBatchReady`, `rateLimitingConfiguration`, `runService`, `timerFactory`, `queueFactory`)
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `T` |
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `binFactory` | `BinFactory` | `undefined` |
+| `dateTimeConstructor` | `DateTimeConstructor` | `undefined` |
+| `doublyLinkedListFactory` | `DoublyLinkedListFactory` | `undefined` |
+| `onBatchReady` | (`batch`: `DoublyLinkedList`<`T`\>) => `void` | `undefined` |
+| `rateLimitingConfiguration` | `Object` | `undefined` |
+| `rateLimitingConfiguration.maxNumberOfItems` | `number` | `t.number` |
+| `rateLimitingConfiguration.maxTimeBetweenPostsInSeconds` | `number` | `t.number` |
+| `rateLimitingConfiguration.minTimeBetweenPostsInSeconds` | `undefined` \| `number` | `undefined` |
+| `runService` | `RunService` | `undefined` |
+| `timerFactory` | `TimerFactory` | `undefined` |
+| `queueFactory` | `QueueFactory` | `undefined` |
+
+#### Defined in
+
+[classes/BatchCollector.ts:29](https://github.com/Bytebit-Org/roblox-BatchCollector/blob/678772d/src/classes/BatchCollector.ts#L29)
 
 ## Methods
 
@@ -51,7 +87,7 @@ Any further calls to methods on the instance will throw errors.
 
 #### Defined in
 
-[classes/BatchCollector.ts:67](https://github.com/Bytebit-Org/roblox-BatchCollector/blob/f54d625/src/classes/BatchCollector.ts#L67)
+[classes/BatchCollector.ts:67](https://github.com/Bytebit-Org/roblox-BatchCollector/blob/678772d/src/classes/BatchCollector.ts#L67)
 
 ___
 
@@ -59,7 +95,8 @@ ___
 
 ▸ **forcePostCurrentBatch**(): `void`
 
-Forces the current batch to be posted right away, ahead of any others presently in the queue
+Forces the current batch to be posted right away, ahead of any others presently in the queue,
+ignoring any minimum time between batch postings
 
 #### Returns
 
@@ -71,7 +108,7 @@ Forces the current batch to be posted right away, ahead of any others presently 
 
 #### Defined in
 
-[classes/BatchCollector.ts:77](https://github.com/Bytebit-Org/roblox-BatchCollector/blob/f54d625/src/classes/BatchCollector.ts#L77)
+[classes/BatchCollector.ts:77](https://github.com/Bytebit-Org/roblox-BatchCollector/blob/678772d/src/classes/BatchCollector.ts#L77)
 
 ___
 
@@ -79,7 +116,8 @@ ___
 
 ▸ **forcePostRemainingBatches**(): `void`
 
-Forces all remaining batches, including the current one, to be posted right away in queue order
+Forces all remaining batches, including the current one, to be posted right away in queue order,
+ignoring any minimum time between batch postings
 
 #### Returns
 
@@ -91,7 +129,7 @@ Forces all remaining batches, including the current one, to be posted right away
 
 #### Defined in
 
-[classes/BatchCollector.ts:95](https://github.com/Bytebit-Org/roblox-BatchCollector/blob/f54d625/src/classes/BatchCollector.ts#L95)
+[classes/BatchCollector.ts:95](https://github.com/Bytebit-Org/roblox-BatchCollector/blob/678772d/src/classes/BatchCollector.ts#L95)
 
 ___
 
@@ -113,7 +151,7 @@ True if the current batch is empty, false otherwise
 
 #### Defined in
 
-[classes/BatchCollector.ts:106](https://github.com/Bytebit-Org/roblox-BatchCollector/blob/f54d625/src/classes/BatchCollector.ts#L106)
+[classes/BatchCollector.ts:108](https://github.com/Bytebit-Org/roblox-BatchCollector/blob/678772d/src/classes/BatchCollector.ts#L108)
 
 ___
 
@@ -135,7 +173,7 @@ True if there are no batches in the queue, false otherwise
 
 #### Defined in
 
-[classes/BatchCollector.ts:112](https://github.com/Bytebit-Org/roblox-BatchCollector/blob/f54d625/src/classes/BatchCollector.ts#L112)
+[classes/BatchCollector.ts:114](https://github.com/Bytebit-Org/roblox-BatchCollector/blob/678772d/src/classes/BatchCollector.ts#L114)
 
 ___
 
@@ -143,7 +181,8 @@ ___
 
 ▸ **pushItems**(`batchItems`): `void`
 
-Pushes the given items onto the current batch.
+Pushes the given items onto the current batch. The last item in the input array will be the
+last item to be put into a batch.
 If, during this process, the current batch fills up, it will be queued for posting.
 Any remaining items will overflow into the new batch.
 This queueing and creating of a new overflow batch can happen infinitely many times in one call of this method.
@@ -164,7 +203,7 @@ This queueing and creating of a new overflow batch can happen infinitely many ti
 
 #### Defined in
 
-[classes/BatchCollector.ts:118](https://github.com/Bytebit-Org/roblox-BatchCollector/blob/f54d625/src/classes/BatchCollector.ts#L118)
+[classes/BatchCollector.ts:120](https://github.com/Bytebit-Org/roblox-BatchCollector/blob/678772d/src/classes/BatchCollector.ts#L120)
 
 ___
 
@@ -195,4 +234,4 @@ ___
 
 #### Defined in
 
-[classes/BatchCollector.ts:50](https://github.com/Bytebit-Org/roblox-BatchCollector/blob/f54d625/src/classes/BatchCollector.ts#L50)
+[classes/BatchCollector.ts:50](https://github.com/Bytebit-Org/roblox-BatchCollector/blob/678772d/src/classes/BatchCollector.ts#L50)
