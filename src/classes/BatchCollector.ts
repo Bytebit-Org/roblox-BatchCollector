@@ -2,12 +2,12 @@ import { ITimer, TimerState } from "@rbxts/timer";
 import { Bin } from "@rbxts/bin";
 import { assertNotDestroyed, warnAlreadyDestroyed } from "@rbxts/destroyed-instance-logging";
 import { RunService } from "@rbxts/services";
-import { BatchPostRateLimitingConfiguration } from "types/BatchPostRateLimitingConfiguration";
-import { IBatchCollector } from "interfaces/IBatchCollector";
-import { BinFactory } from "factories/BinFactory";
-import { DoublyLinkedListFactory } from "factories/DoublyLinkedListFactory";
-import { TimerFactory } from "factories/TimerFactory";
-import { QueueFactory } from "factories/QueueFactory";
+import { BatchPostRateLimitingConfiguration } from "../types/BatchPostRateLimitingConfiguration";
+import { IBatchCollector } from "../interfaces/IBatchCollector";
+import { BinFactory } from "../factories/BinFactory";
+import { DoublyLinkedListFactory } from "../factories/DoublyLinkedListFactory";
+import { TimerFactory } from "../factories/TimerFactory";
+import { QueueFactory } from "../factories/QueueFactory";
 import { DoublyLinkedList } from "@rbxts/linked-lists";
 import { Queue } from "@rbxts/stacks-and-queues";
 

@@ -1,13 +1,13 @@
 {
   "name": "@rbxts/batch-collector",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A module for collecting batches of items, be they logs or tasks, to be posted together in order.",
   "main": "out/init.lua",
   "scripts": {
     "eslint": "npx eslint \"src/**/*.ts\" --max-warnings 0",
     "prepublishOnly": "rm -rf ./out; rbxtsc --type=package",
-    "test": "rbxtsc --type=game && rojo build -o ./unit_tests.rbxlx && run-in-roblox ./unit_tests.rbxlx -s ./spec.server.lua",
-    "wsl-start-unit-tests": "set -e; rm -rf ./out; rbxtsc --type=game && rojo build -o unit_tests.rbxlx; ./scripts/open-in-windows ./unit_tests.rbxlx",
+    "test": "rbxtsc --type=game --rojo=./unit-testing.project.json && rojo build -o ./unit_tests.rbxlx && run-in-roblox --place ./unit_tests.rbxlx --script ./spec.server.lua",
+    "wsl-start-unit-tests": "set -e; rm -rf ./out; rbxtsc --type=game --rojo=./unit-testing.project.json && rojo build -o unit_tests.rbxlx ./unit-testing.project.json; ./scripts/open-in-windows ./unit_tests.rbxlx",
     "generate-docs": "npx typedoc ./src/index.ts --excludeExternals --externalPattern \"**/node_modules /**\""
   },
   "repository": {

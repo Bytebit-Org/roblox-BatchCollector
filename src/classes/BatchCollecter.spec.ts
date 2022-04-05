@@ -4,11 +4,11 @@
 
 import { DoublyLinkedList } from "@rbxts/linked-lists";
 import { HttpService, LogService, RunService } from "@rbxts/services";
-import { BinFactory } from "factories/BinFactory";
-import { DoublyLinkedListFactory } from "factories/DoublyLinkedListFactory";
-import { TimerFactory } from "factories/TimerFactory";
-import { QueueFactory } from "factories/QueueFactory";
-import { BatchPostRateLimitingConfiguration } from "types/BatchPostRateLimitingConfiguration";
+import { BinFactory } from "../factories/BinFactory";
+import { DoublyLinkedListFactory } from "../factories/DoublyLinkedListFactory";
+import { TimerFactory } from "../factories/TimerFactory";
+import { QueueFactory } from "../factories/QueueFactory";
+import { BatchPostRateLimitingConfiguration } from "../types/BatchPostRateLimitingConfiguration";
 import { BatchCollector } from "./BatchCollector";
 import { a } from "@rbxts/fitumi";
 import { Signal } from "@rbxts/signals-tooling";
