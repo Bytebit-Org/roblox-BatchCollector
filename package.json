@@ -1,6 +1,6 @@
 {
   "name": "@rbxts/batch-collector",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A module for collecting batches of items, be they logs or tasks, to be posted together in order.",
   "main": "out/init.lua",
   "scripts": {
