@@ -1,7 +1,7 @@
 [package]
 name = "bytebit/batch-collector"
 description = "A module for collecting batches of items, be they logs or tasks, to be posted together in order."
-version = "1.0.2"
+version = "1.0.3"
 license = "MIT"
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
